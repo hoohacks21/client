@@ -23,6 +23,11 @@
 		77777BF8260FD1CE00FA200A /* CredentialsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77777BF7260FD1CE00FA200A /* CredentialsView.swift */; };
 		77B6131A260FCA19002D3DED /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 77B61319260FCA19002D3DED /* Podfile */; };
 		77CB1661260FD6A700C968C7 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB1660260FD6A700C968C7 /* SignUpView.swift */; };
+		77CB167526101C5200C968C7 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB167426101C5200C968C7 /* Profile.swift */; };
+		77CB167926102B5C00C968C7 /* DetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB167826102B5C00C968C7 /* DetailRequest.swift */; };
+		77CB167F261043A300C968C7 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB167E261043A300C968C7 /* TaskListView.swift */; };
+		77CB1683261043DB00C968C7 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB1682261043DB00C968C7 /* Task.swift */; };
+		77CB169E26105A3300C968C7 /* ListEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB169D26105A3300C968C7 /* ListEntryView.swift */; };
 		FA26042DBDF24DB336CC44BF /* Pods_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68DA714CAB06DFFF06489AD /* Pods_client.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +50,11 @@
 		77777BF7260FD1CE00FA200A /* CredentialsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsView.swift; sourceTree = "<group>"; };
 		77B61319260FCA19002D3DED /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
 		77CB1660260FD6A700C968C7 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		77CB167426101C5200C968C7 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		77CB167826102B5C00C968C7 /* DetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRequest.swift; sourceTree = "<group>"; };
+		77CB167E261043A300C968C7 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
+		77CB1682261043DB00C968C7 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		77CB169D26105A3300C968C7 /* ListEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEntryView.swift; sourceTree = "<group>"; };
 		B39ADA7CAE2D5115ABE5AC78 /* Pods-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-client.release.xcconfig"; path = "Target Support Files/Pods-client/Pods-client.release.xcconfig"; sourceTree = "<group>"; };
 		B68DA714CAB06DFFF06489AD /* Pods_client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF1FA089848C7D57F2CDA33A /* Pods-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-client.debug.xcconfig"; path = "Target Support Files/Pods-client/Pods-client.debug.xcconfig"; sourceTree = "<group>"; };
@@ -112,6 +122,8 @@
 			children = (
 				772B7CC0260FB3DA009E28E4 /* Colors.swift */,
 				77305B08260FCDA70001C966 /* User.swift */,
+				77CB167426101C5200C968C7 /* Profile.swift */,
+				77CB1682261043DB00C968C7 /* Task.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -125,6 +137,8 @@
 				77305B04260FCD890001C966 /* LogInView.swift */,
 				77777BF7260FD1CE00FA200A /* CredentialsView.swift */,
 				77CB1660260FD6A700C968C7 /* SignUpView.swift */,
+				77CB167E261043A300C968C7 /* TaskListView.swift */,
+				77CB169D26105A3300C968C7 /* ListEntryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -133,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				77777BD5260FCF5A00FA200A /* FirebaseSession.swift */,
+				77CB167826102B5C00C968C7 /* DetailRequest.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -278,11 +293,16 @@
 			files = (
 				77305B05260FCD8A0001C966 /* LogInView.swift in Sources */,
 				7709DAED260FA87200389063 /* Persistence.swift in Sources */,
+				77CB167F261043A300C968C7 /* TaskListView.swift in Sources */,
 				7709DAE6260FA87000389063 /* ContentView.swift in Sources */,
+				77CB167526101C5200C968C7 /* Profile.swift in Sources */,
 				7709DAF0260FA87200389063 /* client.xcdatamodeld in Sources */,
+				77CB169E26105A3300C968C7 /* ListEntryView.swift in Sources */,
 				77CB1661260FD6A700C968C7 /* SignUpView.swift in Sources */,
 				772B7CC1260FB3DA009E28E4 /* Colors.swift in Sources */,
+				77CB1683261043DB00C968C7 /* Task.swift in Sources */,
 				772B7CBE260FAF85009E28E4 /* HomeView.swift in Sources */,
+				77CB167926102B5C00C968C7 /* DetailRequest.swift in Sources */,
 				772B7CBB260FAD6D009E28E4 /* TabBarView.swift in Sources */,
 				77305B09260FCDA70001C966 /* User.swift in Sources */,
 				7709DAE4260FA87000389063 /* clientApp.swift in Sources */,

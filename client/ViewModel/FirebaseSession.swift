@@ -8,18 +8,20 @@
 import SwiftUI
 import Firebase
 import FirebaseAuth
-import FirebaseDatabase
 
 class FirebaseSession: ObservableObject {
     
     //MARK: Properties
     @Published var session: User?
     @Published var isLoggedIn: Bool?
-
-    var ref: DatabaseReference = Database.database().reference(withPath: "\(String(describing: Auth.auth().currentUser?.uid ?? "Error"))")
     
     //MARK: Functions
     func listen() {
+        Auth.auth().currentUser?.getIDToken(completion: { (res, err) in
+            print(res!)
+        })
+        
+        
         _ = Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = user {
                 self.session = User(uid: user.uid, displayName: user.displayName, email: user.email)

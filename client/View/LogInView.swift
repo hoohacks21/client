@@ -17,13 +17,16 @@ struct LogInView: View {
     
     var body: some View {
         VStack {
+            
+            
+            
             TextField("Email", text: $email)
                 .keyboardType(.emailAddress)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .textFieldStyle(OvalTextFieldStyle())
                 .padding()
                 
             SecureField("Password", text: $password)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .textFieldStyle(OvalTextFieldStyle())
                 .padding()
             
             Button(action: login) {
