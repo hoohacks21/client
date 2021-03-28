@@ -27,9 +27,16 @@ struct ListEntryView: View {
                 Image(systemName: "chevron.right").foregroundColor(Color(.systemGray4)).imageScale(.small)
             },
             content: {
-                HStack {
-                    Text(task.description).scaledToFit()
-                    Spacer()
+                VStack {
+                    HStack {
+                        Text("Coins - ")
+                        Text(String(task.reward))
+                        Spacer()
+                    }
+                    HStack {
+                        Text(task.description).scaledToFit()
+                        Spacer()
+                    }
                 }
             })
             .padding(.horizontal)
@@ -38,6 +45,8 @@ struct ListEntryView: View {
 
 struct ListEntryView_Previews: PreviewProvider {
     static var previews: some View {
-        ListEntryView(task: Task(id: 143334341, CreatedBy: "a", date_to_complete: "a", task_type: "APPLE", time_to_complete: 10, location: "york", lat: 1.345353, long: 1.353545, reward: 100, description: "wow"))
+        NavigationView {
+            ListEntryView(task: Task(id: 143334341, CreatedBy: "a", date_to_complete: "a", task_type: "APPLE", time_to_complete: 10, location: "york", lat: 1.345353, long: 1.353545, reward: 100, description: "wow"))
+        }
     }
 }

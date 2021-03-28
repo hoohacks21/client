@@ -14,12 +14,13 @@ struct CredentialsView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("App Name")
+                Text("Ecochain")
                     .bold()
                     .font(.system(size: 60))
                     .aspectRatio(contentMode: .fit)
+                    .foregroundColor(.darkGreen)
                     
-                Image("credentialsImage")
+                Image("tree")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                 
@@ -34,7 +35,6 @@ struct CredentialsView: View {
                                     .fill(Color.darkGreen)
                             )
                             .padding()
-                            .shadow(radius: 10)
                             
                     }
                 
@@ -52,7 +52,6 @@ struct CredentialsView: View {
                         .padding(.bottom)
                         .padding(.leading)
                         .padding(.trailing)
-                        .shadow(radius: 10)
                 }
             }
         }

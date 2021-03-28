@@ -21,7 +21,7 @@ class Network: ObservableObject {
             if err != nil {
                 print(err!)
             } else {
-                guard let url = URL(string: ProcessInfo.processInfo.environment["serverUrl"]! + "my_tasks") else {
+                guard let url = URL(string: ProcessInfo.processInfo.environment["serverUrl"]! + "todo_tasks") else {
                     print("Invalid URL")
                     return
                 }
@@ -74,7 +74,7 @@ class Network: ObservableObject {
                 var request = URLRequest(url: url)
                 request.addValue("Bearer " + res!, forHTTPHeaderField: "Authorization")
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                request.httpBody = try! JSONEncoder().encode(["uid": uid])
+                request.httpBody = try! JSONEncoder().encode(["task_id": uid])
                 request.httpMethod = "POST"
                 
                 URLSession.shared.dataTask(with: request) { data, response, error in

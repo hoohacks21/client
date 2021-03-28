@@ -35,9 +35,14 @@ struct HomeView: View {
                                 .scaledToFit()
                                 .frame(width: 80.0, height: 80.0, alignment: .center)
                                 .clipShape(Circle())
-                            Text(network.profile.name)
+                            Text("Ari Dokmecian")
                                 .font(.system(size: 40))
                                 .foregroundColor(.darkGreen)
+                            HStack {
+                                Text("Coins available: ")
+                                Text(String(network.profile.coins))
+                                Image("")
+                            }
                         }
                     }
                     .padding(.horizontal)
@@ -47,10 +52,10 @@ struct HomeView: View {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
                             .foregroundColor(.lightGreen)
-                        if !network.lists.isEmpty {
+                        if !network.acceptedTasks.isEmpty {
                             ScrollView {
                                 LazyVStack {
-                                    ForEach(network.lists) { entry in
+                                    ForEach(network.acceptedTasks) { entry in
                                         NavigationLink(
                                             destination: DetailView(task: entry),
                                             label: {
@@ -63,15 +68,16 @@ struct HomeView: View {
                             Text("No Current Tasks")
                                 .font(.title)
                         }
-                        
                     }
                     .padding()
                     .scaledToFit()
+                
                 }
                 .padding(.top, 40)
             }
             .onAppear {
                 network.getProfile()
+                network.getTasks()
                 network.getAcceptedTasks()
             }
             .navigationTitle(Text("Home"))
@@ -96,7 +102,6 @@ struct HomeView: View {
                 }
             }
             Spacer()
-            
         }
     }
 }

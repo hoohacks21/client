@@ -43,7 +43,18 @@ struct CreateTaskView: View {
             }
             
             Section(header: Text("submit")) {
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                Button(action: {
+                    id = 0
+                    created_by = ""
+                    date_to_complete = Date()
+                    task_type = ""
+                    time_to_complete = 0
+                    location = ""
+                    lat = ""
+                    long = ""
+                    reward = ""
+                    description = ""
+                }, label: {
                     Text("Submit Task")
                 })
             }

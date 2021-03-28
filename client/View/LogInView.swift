@@ -17,9 +17,6 @@ struct LogInView: View {
     
     var body: some View {
         VStack {
-            
-            
-            
             TextField("Email", text: $email)
                 .keyboardType(.emailAddress)
                 .textFieldStyle(OvalTextFieldStyle())

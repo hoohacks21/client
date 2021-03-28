@@ -29,6 +29,13 @@ struct DetailView: View {
                 Text(task.description)
             }
             
+            Section(header: Text("Rewards")) {
+                HStack {
+                    Text(String(task.reward))
+                    Image(systemName: "dollarsign.circle.fill")
+                }
+            }
+            
             Button(action: acceptTask, label: {
                 Text("Accept Task")
             })

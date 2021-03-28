@@ -25,10 +25,8 @@ struct TaskListView: View {
                             .multilineTextAlignment(.center)
                         Spacer()
                     }
-                    
                 }
                 .navigationTitle(Text("Tasks"))
-            
             } else {
                 ScrollView {
                     LazyVStack(alignment: .center) {
@@ -38,12 +36,10 @@ struct TaskListView: View {
                             }
                         }
                     }
-                }.navigationTitle(Text("Tasks"))
+                }
+                .padding(.top)
+                .navigationTitle(Text("Tasks"))
             }
-    
-        }
-        .onAppear {
-            network.getTasks()
         }
     }
 }
@@ -53,3 +49,4 @@ struct TaskListView_Previews: PreviewProvider {
         TaskListView()
     }
 }
+
