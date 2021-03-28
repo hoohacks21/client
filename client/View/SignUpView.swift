@@ -82,7 +82,7 @@ struct SignUpView: View {
                 print("no error")
                 self.email = ""
                 self.password = ""
-                let profile = Profile(id: result!.user.uid, name: result!.user.displayName!, coins: 0, organization: false)
+                let profile = Profile(id: result!.user.uid, name: name, coins: 0, organization: false)
                 self.name = ""
                 self.network.configProfile(profile: profile)
             }
