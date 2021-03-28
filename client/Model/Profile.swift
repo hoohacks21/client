@@ -9,15 +9,15 @@ import Foundation
 
 class Profile: Codable {
     
-    init(ID: String, Name: String, Coins: Int, Organization: Bool) {
-        self.ID = ID
-        self.Name = Name
-        self.Coins = Coins
-        self.Organization = Organization
+    init(id: String, name: String, coins: Int, organization: Bool) {
+        self.id = id
+        self.name = name
+        self.coins = coins
+        self.organization = organization
     }
     
-    var ID: String
-    var Name: String
-    var Coins: Int
-    var Organization: Bool
+    var id: String
+    var name: String
+    var coins: Int
+    var organization: Bool
 }

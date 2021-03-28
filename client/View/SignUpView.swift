@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct OvalTextFieldStyle: TextFieldStyle {
+    
+    @EnvironmentObject var network: Network
+    
     func _body(configuration: TextField<Self._Label>) -> some View {
         configuration
             .padding(10)
@@ -22,6 +25,7 @@ struct SignUpView: View {
     @State var name = ""
     
     @EnvironmentObject var session: FirebaseSession
+    @EnvironmentObject var network: Network
     
     var body: some View {
         
@@ -78,9 +82,9 @@ struct SignUpView: View {
                 print("no error")
                 self.email = ""
                 self.password = ""
-                let profile = Profile(ID: result!.user.uid, Name: name, Coins: 0, Organization: false)
+                let profile = Profile(id: result!.user.uid, name: name, coins: 0, organization: false)
                 self.name = ""
-                configProfile(profile: profile)
+                self.network.configProfile(profile: profile)
             }
         }
     }

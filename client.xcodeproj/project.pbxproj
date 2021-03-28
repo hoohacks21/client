@@ -29,6 +29,7 @@
 		77CB1683261043DB00C968C7 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB1682261043DB00C968C7 /* Task.swift */; };
 		77CB169E26105A3300C968C7 /* ListEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB169D26105A3300C968C7 /* ListEntryView.swift */; };
 		77CB16A12610651300C968C7 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB16A02610651300C968C7 /* DetailView.swift */; };
+		77CB16B426108A7F00C968C7 /* CreateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB16B326108A7E00C968C7 /* CreateTaskView.swift */; };
 		FA26042DBDF24DB336CC44BF /* Pods_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68DA714CAB06DFFF06489AD /* Pods_client.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		77CB1682261043DB00C968C7 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		77CB169D26105A3300C968C7 /* ListEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEntryView.swift; sourceTree = "<group>"; };
 		77CB16A02610651300C968C7 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		77CB16B326108A7E00C968C7 /* CreateTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskView.swift; sourceTree = "<group>"; };
 		B39ADA7CAE2D5115ABE5AC78 /* Pods-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-client.release.xcconfig"; path = "Target Support Files/Pods-client/Pods-client.release.xcconfig"; sourceTree = "<group>"; };
 		B68DA714CAB06DFFF06489AD /* Pods_client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF1FA089848C7D57F2CDA33A /* Pods-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-client.debug.xcconfig"; path = "Target Support Files/Pods-client/Pods-client.debug.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				77CB167E261043A300C968C7 /* TaskListView.swift */,
 				77CB169D26105A3300C968C7 /* ListEntryView.swift */,
 				77CB16A02610651300C968C7 /* DetailView.swift */,
+				77CB16B326108A7E00C968C7 /* CreateTaskView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77305B05260FCD8A0001C966 /* LogInView.swift in Sources */,
+				77CB16B426108A7F00C968C7 /* CreateTaskView.swift in Sources */,
 				77CB16A12610651300C968C7 /* DetailView.swift in Sources */,
 				7709DAED260FA87200389063 /* Persistence.swift in Sources */,
 				77CB167F261043A300C968C7 /* TaskListView.swift in Sources */,

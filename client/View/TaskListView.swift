@@ -13,17 +13,35 @@ struct TaskListView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                LazyVStack(alignment: .center) {
-                    Section {
-                        ForEach(network.lists) { entry in
-                            ListEntryView(task: entry)
+            if network.lists.isEmpty {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .frame(width: 300, height: 200, alignment: .center)
+                        .foregroundColor(.lightGreen)
+                    HStack {
+                        Spacer()
+                        Text("We've run out of tasks!")
+                            .font(.title)
+                            .multilineTextAlignment(.center)
+                        Spacer()
+                    }
+                    
+                }
+                .navigationTitle(Text("Tasks"))
+            
+            } else {
+                ScrollView {
+                    LazyVStack(alignment: .center) {
+                        Section {
+                            ForEach(network.lists) { entry in
+                                ListEntryView(task: entry)
+                            }
                         }
                     }
-                }
-            }.navigationTitle(Text("Tasks"))
+                }.navigationTitle(Text("Tasks"))
+            }
+    
         }
-        
         .onAppear {
             network.getTasks()
         }
