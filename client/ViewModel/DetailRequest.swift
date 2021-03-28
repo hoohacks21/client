@@ -11,7 +11,44 @@ import Firebase
 import FirebaseAuth
 
 class Network: ObservableObject {
-    @Published var users: [Task] = []
+    @Published var lists: [Task] = []
+    
+    func acceptTask(uid: Int) {
+        Auth.auth().currentUser!.getIDToken(completion: { (res, err) in
+            if err != nil {
+                print(err!)
+            } else {
+                guard let url = URL(string: ProcessInfo.processInfo.environment["serverUrl"]! + "accept_task") else {
+                    print("Invalid URL")
+                    return
+                }
+
+                print(res!)
+                
+                var request = URLRequest(url: url)
+                request.addValue("Bearer " + res!, forHTTPHeaderField: "Authorization")
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.httpBody = try! JSONEncoder().encode(["uid": uid])
+                request.httpMethod = "POST"
+                
+                URLSession.shared.dataTask(with: request) { data, response, error in
+                    
+                    if let error = error {
+                        print("Request error: ", error)
+                        return
+                    }
+                    
+                    guard let response = response as? HTTPURLResponse else { return }
+                    
+                    if response.statusCode == 200 {
+                        DispatchQueue.main.async {
+                           self.getTasks()
+                        }
+                    }
+                }.resume()
+            }
+        })
+    }
     
     func getTasks() {
         Auth.auth().currentUser!.getIDToken(completion: { (res, err) in
@@ -30,16 +67,26 @@ class Network: ObservableObject {
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
                 request.httpMethod = "GET"
                 
-                URLSession.shared.dataTask(with: request) { data, error, result in
-                    DispatchQueue.main.async {
-                        do {
-                            print(data!)
-                            let decodedUsers = try JSONDecoder().decode([Task].self, from: data!)
-                            self.users = decodedUsers
-                        } catch let error {
-                            print("Error decoding: ", error)
+                URLSession.shared.dataTask(with: request) { data, response, error in
+                    
+                    if let error = error {
+                        print("Request error: ", error)
+                        return
+                    }
+                    
+                    guard let response = response as? HTTPURLResponse else { return }
+                    
+                    if response.statusCode == 200 {
+                        guard let data = data else { return }
+                
+                        DispatchQueue.main.async {
+                            do {
+                                let decodedTasks = try JSONDecoder().decode([Task].self, from: data)
+                                self.lists = decodedTasks
+                            } catch let error {
+                                print("Error decoding: ", error)
+                            }
                         }
-                        
                     }
                 }.resume()
             }
@@ -72,34 +119,3 @@ func configProfile(profile: Profile) {
         }
     })
 }
-
-
-
-
-extension URLSession {
-    func dataTask(with url: URLRequest, result: @escaping (Result<(URLResponse, Data), Error>) -> Void) -> URLSessionDataTask {
-    return dataTask(with: url) { (data, response, error) in
-        if let error = error {
-            result(.failure(error))
-            return
-        }
-        guard let response = response, let data = data else {
-            let error = NSError(domain: "error", code: 0, userInfo: nil)
-            result(.failure(error))
-            return
-        }
-        result(.success((response, data)))
-    }
-}
-}
-
-
-
-
-public enum APIServiceError: Error {
-        case apiError
-        case invalidEndpoint
-        case invalidResponse
-        case noData
-        case decodeError
-    }
